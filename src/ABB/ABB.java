@@ -45,8 +45,10 @@ import java.util.Stack;
  }
 
  public T buscar(T info) {
- return buscarNo(root, info).getInfo();
- }
+    ABBNode<T> node = buscarNo(root, info);
+    return node != null ? node.getInfo() : null; 
+}
+
 
  private ABBNode<T> buscarNo(ABBNode<T> node, T info) {
  if (node == null) {
@@ -148,6 +150,7 @@ public void inOrderNR() {
 
         atual = stack.pop();
         System.out.print(atual.getInfo() + " ");
+        System.out.println();
         atual = atual.getRight();
     }
     System.out.println();
@@ -228,5 +231,6 @@ public int contarFolhasNR() {
 
     return count;
 }
+
     
 }
